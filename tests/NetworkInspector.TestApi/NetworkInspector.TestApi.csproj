@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\NetworkInspector\NetworkInspector.csproj" />
+    <ProjectReference Include="..\..\src\Spector\Spector.csproj" />
   </ItemGroup>
 
 </Project>

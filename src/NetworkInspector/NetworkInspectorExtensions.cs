@@ -22,7 +22,6 @@ namespace NetworkInspector
 
             services.TryAddEnumerable(ServiceDescriptor.Singleton<IHttpMessageHandlerBuilderFilter, NetworkInspectorHandlerFilter>());
 
-
             // services.AddHttpClient("my-client")
             //     .AddHttpMessageHandler<NetworkInspectorHttpHandler>(); 
             

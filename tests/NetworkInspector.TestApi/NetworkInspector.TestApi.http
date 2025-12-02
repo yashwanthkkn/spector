@@ -1,6 +1,6 @@
-@NetworkInspector.TestApi_HostAddress = http://localhost:5031
+@NetworkInspector.TestApi_HostAddress = 
 
-GET {{NetworkInspector.TestApi_HostAddress}}/weatherforecast/
+GET http://localhost:5031/test/http-call/
 Accept: application/json
 
 ###

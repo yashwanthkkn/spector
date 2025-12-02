@@ -1,4 +1,5 @@
 using NetworkInspector;
+using Spector;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +11,7 @@ builder.Services.AddHttpClient();
 
 // Add Network Inspector - this is the ONLY line needed!
 builder.Services.AddNetworkInspector();
+builder.Services.AddSpector();
 
 var app = builder.Build();
 
@@ -17,7 +19,8 @@ var app = builder.Build();
 app.UseAuthorization();
 
 // Use Network Inspector Middleware
-app.UseNetworkInspector();
+//app.UseNetworkInspector();
+app.UseSpector();
 
 app.MapControllers();
 
