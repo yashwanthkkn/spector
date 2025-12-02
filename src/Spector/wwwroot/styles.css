@@ -42,7 +42,7 @@ body {
 .header {
     background: var(--bg-secondary);
     border-bottom: 1px solid var(--border-color);
-    padding: 1rem 1.5rem;
+    padding: 0.75rem 1.25rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -53,11 +53,11 @@ body {
 .header-content {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .header h1 {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     font-weight: 600;
     background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
     -webkit-background-clip: text;
@@ -69,15 +69,15 @@ body {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1rem;
+    padding: 0.375rem 0.875rem;
     background: var(--bg-tertiary);
-    border-radius: 20px;
-    font-size: 0.875rem;
+    border-radius: 16px;
+    font-size: 0.8125rem;
 }
 
 .status-indicator {
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background: var(--text-muted);
     animation: pulse 2s infinite;
@@ -93,8 +93,15 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 .controls {
@@ -259,7 +266,7 @@ body {
 .trace-group {
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
     transition: all 0.3s;
     animation: slideIn 0.3s ease-out;
@@ -270,6 +277,7 @@ body {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -277,7 +285,7 @@ body {
 }
 
 .trace-header {
-    padding: 1rem 1.25rem;
+    padding: 0.625rem 1rem;
     background: var(--bg-tertiary);
     border-bottom: 1px solid var(--border-color);
     cursor: pointer;
@@ -300,39 +308,39 @@ body {
 }
 
 .trace-title {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     color: var(--text-secondary);
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.125rem;
 }
 
 .trace-id {
     font-family: 'Courier New', monospace;
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     color: var(--text-muted);
 }
 
 .trace-meta {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .trace-duration {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 600;
     color: var(--accent-orange);
 }
 
 .trace-count {
-    font-size: 0.75rem;
-    padding: 0.25rem 0.5rem;
+    font-size: 0.6875rem;
+    padding: 0.125rem 0.5rem;
     background: var(--bg-primary);
-    border-radius: 12px;
+    border-radius: 10px;
     color: var(--text-secondary);
 }
 
 .collapse-icon {
-    font-size: 1.25rem;
+    font-size: 1rem;
     color: var(--text-secondary);
     transition: transform 0.3s;
 }
@@ -342,17 +350,17 @@ body {
 }
 
 .trace-activities {
-    padding: 0.5rem;
+    padding: 0.375rem;
 }
 
 .activity-item {
     display: flex;
     align-items: center;
-    padding: 0.75rem 1rem;
-    margin: 0.25rem 0;
+    padding: 0.5rem 0.75rem;
+    margin: 0.125rem 0;
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
-    border-radius: 6px;
+    border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s;
     position: relative;
@@ -361,45 +369,45 @@ body {
 .activity-item:hover {
     background: var(--bg-tertiary);
     border-color: var(--accent-blue);
-    transform: translateX(4px);
+    transform: translateX(2px);
 }
 
 .activity-item.selected {
     background: var(--bg-tertiary);
     border-color: var(--accent-blue);
-    box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2);
+    box-shadow: 0 0 0 1px rgba(74, 158, 255, 0.2);
 }
 
 .activity-item.child {
-    margin-left: 2rem;
+    margin-left: 1.5rem;
 }
 
 .activity-item.child::before {
     content: '';
     position: absolute;
-    left: -1rem;
+    left: -0.75rem;
     top: 50%;
-    width: 1rem;
+    width: 0.75rem;
     height: 1px;
     background: var(--border-color);
 }
 
 .activity-type {
-    width: 8px;
-    height: 8px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
-    margin-right: 0.75rem;
+    margin-right: 0.625rem;
     flex-shrink: 0;
 }
 
 .activity-type.http-in {
     background: var(--http-in);
-    box-shadow: 0 0 8px var(--http-in);
+    box-shadow: 0 0 6px var(--http-in);
 }
 
 .activity-type.http-out {
     background: var(--http-out);
-    box-shadow: 0 0 8px var(--http-out);
+    box-shadow: 0 0 6px var(--http-out);
 }
 
 .activity-content {
@@ -408,29 +416,40 @@ body {
 }
 
 .activity-name {
-    font-size: 0.875rem;
+    font-size: 0.75rem;
     font-weight: 600;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.125rem;
     display: flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.375rem;
 }
 
 .activity-method {
-    font-size: 0.75rem;
-    padding: 0.125rem 0.5rem;
-    border-radius: 4px;
+    font-size: 0.6875rem;
+    padding: 0.0625rem 0.375rem;
+    border-radius: 3px;
     font-weight: 600;
     background: var(--bg-tertiary);
 }
 
-.method-GET { color: var(--accent-green); }
-.method-POST { color: var(--accent-blue); }
-.method-PUT { color: var(--accent-orange); }
-.method-DELETE { color: var(--accent-red); }
+.method-GET {
+    color: var(--accent-green);
+}
+
+.method-POST {
+    color: var(--accent-blue);
+}
+
+.method-PUT {
+    color: var(--accent-orange);
+}
+
+.method-DELETE {
+    color: var(--accent-red);
+}
 
 .activity-url {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     color: var(--text-secondary);
     white-space: nowrap;
     overflow: hidden;
@@ -442,17 +461,18 @@ body {
     flex-direction: column;
     align-items: flex-end;
     gap: 0.25rem;
+    margin-left: 0.5rem;
 }
 
 .activity-duration {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     color: var(--accent-orange);
 }
 
 .activity-timeline {
-    width: 100px;
-    height: 4px;
+    width: 80px;
+    height: 3px;
     background: var(--bg-tertiary);
     border-radius: 2px;
     overflow: hidden;
@@ -480,7 +500,7 @@ body {
 }
 
 .details-header {
-    padding: 1rem 1.25rem;
+    padding: 0.75rem 1rem;
     background: var(--bg-tertiary);
     border-bottom: 1px solid var(--border-color);
     display: flex;
@@ -489,7 +509,7 @@ body {
 }
 
 .details-header h3 {
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: 600;
 }
 
@@ -497,11 +517,11 @@ body {
     background: none;
     border: none;
     color: var(--text-secondary);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     cursor: pointer;
     padding: 0;
-    width: 30px;
-    height: 30px;
+    width: 26px;
+    height: 26px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -515,9 +535,9 @@ body {
 }
 
 .details-content {
-    padding: 1.25rem;
+    padding: 1rem;
     overflow-y: auto;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 100px);
 }
 
 .details-placeholder {
@@ -527,23 +547,23 @@ body {
 }
 
 .detail-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .detail-section h4 {
-    font-size: 0.75rem;
+    font-size: 0.6875rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: var(--text-secondary);
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.625rem;
 }
 
 .detail-row {
     display: flex;
-    padding: 0.5rem 0;
+    padding: 0.375rem 0;
     border-bottom: 1px solid var(--border-color);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
 }
 
 .detail-row:last-child {
@@ -551,9 +571,10 @@ body {
 }
 
 .detail-label {
-    width: 120px;
+    width: 100px;
     color: var(--text-secondary);
     flex-shrink: 0;
+    font-size: 0.75rem;
 }
 
 .detail-value {
@@ -561,17 +582,17 @@ body {
     color: var(--text-primary);
     word-break: break-all;
     font-family: 'Courier New', monospace;
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
 }
 
 .code-block {
     background: var(--bg-primary);
     border: 1px solid var(--border-color);
     border-radius: 6px;
-    padding: 1rem;
+    padding: 0.75rem;
     overflow-x: auto;
     font-family: 'Courier New', monospace;
-    font-size: 0.8125rem;
+    font-size: 0.75rem;
     line-height: 1.5;
     max-height: 400px;
     overflow-y: auto;
@@ -585,9 +606,9 @@ body {
 
 .badge {
     display: inline-block;
-    padding: 0.25rem 0.75rem;
-    border-radius: 12px;
-    font-size: 0.75rem;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 10px;
+    font-size: 0.6875rem;
     font-weight: 600;
 }
 
@@ -625,7 +646,7 @@ body {
     .sidebar {
         width: 200px;
     }
-    
+
     .details-panel.open {
         width: 350px;
     }
@@ -637,11 +658,11 @@ body {
         gap: 1rem;
         align-items: flex-start;
     }
-    
+
     .sidebar {
         display: none;
     }
-    
+
     .details-panel.open {
         position: absolute;
         right: 0;
