@@ -4,3 +4,15 @@ GET http://localhost:5031/test/http-call/
 Accept: application/json
 
 ###
+
+GET http://localhost:5031/test/http-call1/
+Accept: application/json
+
+###
+
+POST http://localhost:5031/test/echo/
+Accept: application/json
+
+{
+    "name":"yash"
+}

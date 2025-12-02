@@ -92,7 +92,7 @@ public class HttpActivityMiddleware
                     activity.AddTag("spector.responseBody", responseBody);
                 }
                 
-                activity.AddTag("spector.status", context.Response.StatusCode);
+                activity.AddTag("spector.status", context.Response.StatusCode.ToString());
             }
             catch (Exception ex)
             {

@@ -42,6 +42,7 @@ function connectSSE() {
 
         try {
             const activity = JSON.parse(event.data);
+            console.log(activity);
             processActivity(activity);
         } catch (error) {
             console.error('Error parsing SSE data:', error);
@@ -194,6 +195,7 @@ function renderActivityItem(activity, childrenMap, traceStartTime, traceDuration
     const type = activity.Name.toLowerCase();
     const method = activity.Tags['spector.method'] || 'N/A';
     const url = activity.Tags['spector.url'] || 'N/A';
+    const status = activity.Tags['spector.status'] || '';
     const duration = parseDuration(activity.Duration);
 
     // Check filters
@@ -210,6 +212,16 @@ function renderActivityItem(activity, childrenMap, traceStartTime, traceDuration
         .map(child => renderActivityItem(child, childrenMap, traceStartTime, traceDuration, true))
         .join('');
 
+    // Determine status color
+    let statusClass = '';
+    if (status) {
+        const statusCode = parseInt(status);
+        if (statusCode >= 200 && statusCode < 300) statusClass = 'status-success';
+        else if (statusCode >= 300 && statusCode < 400) statusClass = 'status-redirect';
+        else if (statusCode >= 400 && statusCode < 500) statusClass = 'status-client-error';
+        else if (statusCode >= 500) statusClass = 'status-server-error';
+    }
+
     return `
         <div class="activity-item ${isChild ? 'child' : ''}" 
              data-span-id="${activity.SpanId}"
@@ -217,8 +229,8 @@ function renderActivityItem(activity, childrenMap, traceStartTime, traceDuration
             <span class="activity-type ${type}"></span>
             <div class="activity-content">
                 <div class="activity-name">
-                    <span>${activity.Name}</span>
                     <span class="activity-method method-${method}">${method}</span>
+                    ${status ? `<span class="activity-status ${statusClass}">${status}</span>` : ''}
                 </div>
                 <div class="activity-url">${url}</div>
             </div>
@@ -322,24 +334,6 @@ function renderActivityDetails(activity) {
                 <span class="detail-label">Duration</span>
                 <span class="detail-value">${formatDuration(duration)}</span>
             </div>
-        </div>
-        
-        <div class="detail-section">
-            <h4>Trace Information</h4>
-            <div class="detail-row">
-                <span class="detail-label">Trace ID</span>
-                <span class="detail-value">${activity.TraceId}</span>
-            </div>
-            <div class="detail-row">
-                <span class="detail-label">Span ID</span>
-                <span class="detail-value">${activity.SpanId}</span>
-            </div>
-            ${activity.ParentSpanId ? `
-                <div class="detail-row">
-                    <span class="detail-label">Parent Span</span>
-                    <span class="detail-value">${activity.ParentSpanId}</span>
-                </div>
-            ` : ''}
         </div>
         
         <div class="detail-section">

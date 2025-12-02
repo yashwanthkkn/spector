@@ -53,7 +53,7 @@ public class SpectorHttpHandler : DelegatingHandler
         if (activity != null)
         {
             // Add response details to activity
-            activity.AddTag("spector.status", (int)response.StatusCode);
+            activity.AddTag("spector.status", response.StatusCode.ToString());
 
             // Capture response body
             if (response.Content != null)
