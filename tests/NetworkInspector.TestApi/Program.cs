@@ -16,11 +16,12 @@ builder.Services.AddSpector();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseSpector();
 app.UseAuthorization();
 
 // Use Network Inspector Middleware
 //app.UseNetworkInspector();
-app.UseSpector();
+
 
 app.MapControllers();
 

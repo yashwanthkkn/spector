@@ -71,7 +71,11 @@ public class ActivityCollectorService : BackgroundService
     private TraceDto MapActivity(Activity a)
     {
         var tags = new Dictionary<string, string>();
-        foreach (var t in a.Tags) tags[t.Key] = t.Value;
+        foreach (var t in a.Tags)
+        {
+            if(t.Key.Contains("spector"))
+                tags[t.Key] = t.Value;
+        }
 
         var eventsList = new List<TraceEventDto>();
         foreach (var ev in a.Events)
