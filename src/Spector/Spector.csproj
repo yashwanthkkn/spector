@@ -12,6 +12,8 @@
 
     <ItemGroup>
         <EmbeddedResource Include="wwwroot\index.html" />
+        <EmbeddedResource Include="wwwroot\styles.css" />
+        <EmbeddedResource Include="wwwroot\app.js" />
     </ItemGroup>
 
 </Project>

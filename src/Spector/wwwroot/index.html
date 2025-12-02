@@ -2,9 +2,77 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ui File</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spector - Network Inspector</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    This is where you can see insights
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <h1>🔍 Spector Network Inspector</h1>
+                <div class="connection-status">
+                    <span class="status-indicator" id="statusIndicator"></span>
+                    <span id="statusText">Connecting...</span>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="clearBtn" class="btn btn-secondary">Clear All</button>
+                <button id="pauseBtn" class="btn btn-secondary">Pause</button>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="sidebar">
+                <div class="filter-section">
+                    <h3>Filters</h3>
+                    <div class="filter-group">
+                        <label>
+                            <input type="checkbox" id="filterHttpIn" checked>
+                            <span class="filter-label http-in">HTTP In</span>
+                        </label>
+                        <label>
+                            <input type="checkbox" id="filterHttpOut" checked>
+                            <span class="filter-label http-out">HTTP Out</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>Statistics</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Total Requests:</span>
+                        <span class="stat-value" id="totalRequests">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Active Traces:</span>
+                        <span class="stat-value" id="activeTraces">0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <div class="trace-list" id="traceList">
+                    <div class="empty-state">
+                        <div class="empty-icon">📡</div>
+                        <p>Waiting for network activity...</p>
+                        <small>Make API requests to see them appear here</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="details-panel" id="detailsPanel">
+                <div class="details-header">
+                    <h3>Request Details</h3>
+                    <button class="close-btn" id="closeDetailsBtn">×</button>
+                </div>
+                <div class="details-content" id="detailsContent">
+                    <p class="details-placeholder">Select a request to view details</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
 </body>
 </html>
