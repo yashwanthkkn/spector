@@ -4,6 +4,24 @@
         <TargetFramework>net8.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        
+        <!-- NuGet Package Metadata -->
+        <PackageId>Spector</PackageId>
+        <Version>1.0.0</Version>
+        <Authors>Yash</Authors>
+        <Company>Yash</Company>
+        <Description>A lightweight network and dependency inspector for ASP.NET Core applications. Spector captures HTTP traces (incoming and outgoing requests) and provides a real-time web UI for monitoring and debugging.</Description>
+        <PackageTags>aspnetcore;network;inspector;tracing;diagnostics;http;monitoring;debugging</PackageTags>
+        <PackageProjectUrl>https://github.com/yash/network-inspector</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/yash/network-inspector</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        
+        <!-- Build Configuration -->
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <IncludeSymbols>true</IncludeSymbols>
+        <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,6 +32,10 @@
         <EmbeddedResource Include="wwwroot\index.html" />
         <EmbeddedResource Include="wwwroot\styles.css" />
         <EmbeddedResource Include="wwwroot\app.js" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>

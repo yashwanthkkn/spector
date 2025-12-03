@@ -10,7 +10,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddHttpClient();
 
 // Add Network Inspector - this is the ONLY line needed!
-builder.Services.AddNetworkInspector();
 builder.Services.AddSpector();
 
 var app = builder.Build();

@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Text;
+using System.Text.Json;
 using Microsoft.Extensions.Logging;
 using Spector.Config;
 
@@ -47,33 +48,44 @@ public class SpectorHttpHandler : DelegatingHandler
             }
         }
 
-        // Send the request
-        var response = await base.SendAsync(request, cancellationToken);
-
-        if (activity != null)
+        HttpResponseMessage response;
+        
+        try
         {
-            // Add response details to activity
-            activity.AddTag("spector.status", response.StatusCode.ToString());
+            // Send the request
+            response = await base.SendAsync(request, cancellationToken);
 
-            // Capture response body
-            if (response.Content != null)
+            if (activity != null)
             {
-                var responseBody = await response.Content.ReadAsStringAsync(cancellationToken);
-                if (!string.IsNullOrEmpty(responseBody))
-                {
-                    // Truncate if too long to avoid memory issues
-                    // var truncatedBody = responseBody.Length > 10000 
-                    //     ? responseBody.Substring(0, 10000) + "... (truncated)"
-                    //     : responseBody;
-                    activity.AddTag("spector.responseBody", responseBody);
-                }
+                // Add response details to activity
+                activity.AddTag("spector.status", ((int)response.StatusCode).ToString());
 
-                // Reset the content stream so it can be read by the caller
-                var contentBytes = Encoding.UTF8.GetBytes(responseBody);
-                response.Content = new ByteArrayContent(contentBytes);
-                response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(
-                    response.Content.Headers.ContentType?.MediaType ?? "application/json");
+                // Capture response body
+                if (response.Content != null)
+                {
+                    var responseBody = await response.Content.ReadAsStringAsync(cancellationToken);
+                    if (!string.IsNullOrEmpty(responseBody))
+                    {
+                        activity.AddTag("spector.responseBody", responseBody);
+                    }
+
+                    // Reset the content stream so it can be read by the caller
+                    var contentBytes = Encoding.UTF8.GetBytes(responseBody);
+                    response.Content = new ByteArrayContent(contentBytes);
+                    response.Content.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue(
+                        response.Content.Headers.ContentType?.MediaType ?? "application/json");
+                }
             }
+        }
+        catch (Exception ex)
+        {
+            if (activity != null)
+            {
+                activity.AddTag("spector.status", "500");
+                activity.AddTag("spector.responseBody", JsonSerializer.Serialize(new { message = ex.Message }));
+            }
+            
+            throw;
         }
 
         return response;

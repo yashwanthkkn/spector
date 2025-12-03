@@ -475,6 +475,12 @@ body {
     color: var(--accent-red);
 }
 
+.status-error {
+    background: rgba(248, 113, 113, 0.2);
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
 .activity-url {
     font-size: 0.6875rem;
     color: var(--text-secondary);

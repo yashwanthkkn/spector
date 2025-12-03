@@ -8,12 +8,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.20" />
+    <PackageReference Include="Spector" Version="1.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\NetworkInspector\NetworkInspector.csproj" />
-    <ProjectReference Include="..\..\src\Spector\Spector.csproj" />
   </ItemGroup>
 
 </Project>

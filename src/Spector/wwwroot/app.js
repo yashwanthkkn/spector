@@ -196,6 +196,7 @@ function renderActivityItem(activity, childrenMap, traceStartTime, traceDuration
     const method = activity.Tags['spector.method'] || 'N/A';
     const url = activity.Tags['spector.url'] || 'N/A';
     const status = activity.Tags['spector.status'] || '';
+    const error = activity.Tags['spector.error'] || '';
     const duration = parseDuration(activity.Duration);
 
     // Check filters
@@ -214,7 +215,12 @@ function renderActivityItem(activity, childrenMap, traceStartTime, traceDuration
 
     // Determine status color
     let statusClass = '';
-    if (status) {
+    let statusDisplay = status;
+
+    if (error || status === '0') {
+        statusClass = 'status-error';
+        statusDisplay = 'ERROR';
+    } else if (status) {
         const statusCode = parseInt(status);
         if (statusCode >= 200 && statusCode < 300) statusClass = 'status-success';
         else if (statusCode >= 300 && statusCode < 400) statusClass = 'status-redirect';
@@ -230,7 +236,7 @@ function renderActivityItem(activity, childrenMap, traceStartTime, traceDuration
             <div class="activity-content">
                 <div class="activity-name">
                     <span class="activity-method method-${method}">${method}</span>
-                    ${status ? `<span class="activity-status ${statusClass}">${status}</span>` : ''}
+                    ${status ? `<span class="activity-status ${statusClass}">${statusDisplay}</span>` : ''}
                 </div>
                 <div class="activity-url">${url}</div>
             </div>
@@ -288,12 +294,32 @@ function renderActivityDetails(activity) {
     const type = activity.Name.toLowerCase();
     const method = activity.Tags['spector.method'] || 'N/A';
     const url = activity.Tags['spector.url'] || 'N/A';
+    const status = activity.Tags['spector.status'] || '';
+    const error = activity.Tags['spector.error'] || '';
+    const errorType = activity.Tags['spector.errorType'] || '';
     const duration = parseDuration(activity.Duration);
     const requestBody = activity.Tags['spector.requestBody'] || '';
     const responseBody = activity.Tags['spector.responseBody'] || '';
 
     let requestBodyHtml = '';
     let responseBodyHtml = '';
+    let errorHtml = '';
+
+    if (error) {
+        errorHtml = `
+            <div class="detail-section">
+                <h4>Error Details</h4>
+                <div class="detail-row">
+                    <span class="detail-label">Error Type</span>
+                    <span class="detail-value">${escapeHtml(errorType)}</span>
+                </div>
+                <div class="detail-row">
+                    <span class="detail-label">Error Message</span>
+                    <span class="detail-value">${escapeHtml(error)}</span>
+                </div>
+            </div>
+        `;
+    }
 
     if (requestBody) {
         const formatted = formatJson(requestBody);
@@ -330,11 +356,19 @@ function renderActivityDetails(activity) {
                 <span class="detail-label">URL</span>
                 <span class="detail-value">${escapeHtml(url)}</span>
             </div>
+            ${status && status !== '0' ? `
+                <div class="detail-row">
+                    <span class="detail-label">Status</span>
+                    <span class="detail-value">${status}</span>
+                </div>
+            ` : ''}
             <div class="detail-row">
                 <span class="detail-label">Duration</span>
                 <span class="detail-value">${formatDuration(duration)}</span>
             </div>
         </div>
+        
+        ${errorHtml}
         
         <div class="detail-section">
             <h4>Timing</h4>
