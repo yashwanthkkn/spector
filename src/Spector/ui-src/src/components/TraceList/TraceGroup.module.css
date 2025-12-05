@@ -1,0 +1,77 @@
+.traceGroup {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: all 0.3s;
+    animation: slideIn 0.3s ease-out;
+}
+
+.traceHeader {
+    padding: 0.625rem 1rem;
+    background: var(--bg-tertiary);
+    border-bottom: 1px solid var(--border-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s;
+}
+
+.traceHeader:hover {
+    background: var(--bg-hover);
+}
+
+.traceHeader.collapsed {
+    border-bottom: none;
+}
+
+.traceInfo {
+    flex: 1;
+}
+
+.traceTitle {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.125rem;
+}
+
+.traceId {
+    font-family: 'Courier New', monospace;
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+}
+
+.traceMeta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.traceDuration {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-orange);
+}
+
+.traceCount {
+    font-size: 0.6875rem;
+    padding: 0.125rem 0.5rem;
+    background: var(--bg-primary);
+    border-radius: 10px;
+    color: var(--text-secondary);
+}
+
+.collapseIcon {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    transition: transform 0.3s;
+}
+
+.collapseIcon.collapsed {
+    transform: rotate(-90deg);
+}
+
+.traceActivities {
+    padding: 0.375rem;
+}

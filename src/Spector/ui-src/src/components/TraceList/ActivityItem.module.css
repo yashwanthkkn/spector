@@ -1,0 +1,165 @@
+.activityItem {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 0.75rem;
+    margin: 0.125rem 0;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.activityItem:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-blue);
+    transform: translateX(2px);
+}
+
+.activityItem.selected {
+    background: var(--bg-tertiary);
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 1px rgba(74, 158, 255, 0.2);
+}
+
+.activityItem.child {
+    margin-left: 1.5rem;
+}
+
+.activityItem.child::before {
+    content: '';
+    position: absolute;
+    left: -0.75rem;
+    top: 50%;
+    width: 0.75rem;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.activityType {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 0.625rem;
+    flex-shrink: 0;
+}
+
+.activityType.httpin {
+    background: var(--http-in);
+    box-shadow: 0 0 6px var(--http-in);
+}
+
+.activityType.httpout {
+    background: var(--http-out);
+    box-shadow: 0 0 6px var(--http-out);
+}
+
+.activityContent {
+    flex: 1;
+    min-width: 0;
+}
+
+.activityName {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.125rem;
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+}
+
+.activityMethod {
+    font-size: 0.6875rem;
+    padding: 0.0625rem 0.375rem;
+    border-radius: 3px;
+    font-weight: 600;
+    background: var(--bg-tertiary);
+}
+
+.methodGET {
+    color: var(--accent-green);
+}
+
+.methodPOST {
+    color: var(--accent-blue);
+}
+
+.methodPUT {
+    color: var(--accent-orange);
+}
+
+.methodDELETE {
+    color: var(--accent-red);
+}
+
+.activityStatus {
+    font-size: 0.6875rem;
+    padding: 0.0625rem 0.375rem;
+    border-radius: 3px;
+    font-weight: 600;
+}
+
+.statusSuccess {
+    background: rgba(52, 211, 153, 0.15);
+    color: var(--accent-green);
+}
+
+.statusRedirect {
+    background: rgba(74, 158, 255, 0.15);
+    color: var(--accent-blue);
+}
+
+.statusClientError {
+    background: rgba(251, 146, 60, 0.15);
+    color: var(--accent-orange);
+}
+
+.statusServerError {
+    background: rgba(248, 113, 113, 0.15);
+    color: var(--accent-red);
+}
+
+.statusError {
+    background: rgba(248, 113, 113, 0.2);
+    color: var(--accent-red);
+    font-weight: 700;
+}
+
+.activityUrl {
+    font-size: 0.6875rem;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.activityTiming {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.25rem;
+    margin-left: 0.5rem;
+}
+
+.activityDuration {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--accent-orange);
+}
+
+.activityTimeline {
+    width: 80px;
+    height: 3px;
+    background: var(--bg-tertiary);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.timelineBar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    border-radius: 2px;
+    transition: width 0.3s;
+}

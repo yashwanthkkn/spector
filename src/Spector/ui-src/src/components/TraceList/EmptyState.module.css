@@ -1,0 +1,20 @@
+.emptyState {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--text-secondary);
+}
+
+.emptyIcon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.emptyState p {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.emptyState small {
+    color: var(--text-muted);
+}

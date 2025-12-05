@@ -1,0 +1,17 @@
+.badge {
+    display: inline-block;
+    padding: 0.1875rem 0.625rem;
+    border-radius: 10px;
+    font-size: 0.6875rem;
+    font-weight: 600;
+}
+
+.httpin {
+    background: rgba(74, 158, 255, 0.15);
+    color: var(--http-in);
+}
+
+.httpout {
+    background: rgba(52, 211, 153, 0.15);
+    color: var(--http-out);
+}

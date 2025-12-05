@@ -1,0 +1,90 @@
+.sidebar {
+    width: 250px;
+    background: var(--bg-secondary);
+    border-right: 1px solid var(--border-color);
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.sidebar h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+}
+
+.filterSection {
+    margin-bottom: 2rem;
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.filterGroup label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.filterGroup label:hover {
+    background: var(--bg-tertiary);
+}
+
+.filterGroup input[type="checkbox"] {
+    margin-right: 0.75rem;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.filterLabel {
+    font-size: 0.875rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.filterLabel.httpIn {
+    background: rgba(74, 158, 255, 0.15);
+    color: var(--http-in);
+}
+
+.filterLabel.httpOut {
+    background: rgba(52, 211, 153, 0.15);
+    color: var(--http-out);
+}
+
+.statsSection {
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.statItem {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.875rem;
+}
+
+.statLabel {
+    color: var(--text-secondary);
+}
+
+.statValue {
+    font-weight: 600;
+    color: var(--accent-blue);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}

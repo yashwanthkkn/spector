@@ -1,0 +1,19 @@
+:root {
+  --bg-primary: #0e1117;
+  --bg-secondary: #1a1d29;
+  --bg-tertiary: #252837;
+  --bg-hover: #2d3142;
+  --border-color: #363b4e;
+  --text-primary: #e8eaed;
+  --text-secondary: #9aa0a6;
+  --text-muted: #5f6368;
+  --accent-blue: #4a9eff;
+  --accent-green: #34d399;
+  --accent-orange: #fb923c;
+  --accent-red: #f87171;
+  --accent-purple: #a78bfa;
+  --http-in: #4a9eff;
+  --http-out: #34d399;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
