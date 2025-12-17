@@ -89,7 +89,7 @@ dotnet run
 Navigate to:
 
 ```
-http://localhost:<your-port>/local-insights
+http://localhost:<your-port>/spector
 ```
 
 You'll see a real-time dashboard showing all HTTP traces captured by your application! 🎉
@@ -104,8 +104,8 @@ Spector works with zero configuration, but you can customize it:
 builder.Services.AddSpector();
 builder.Services.Configure<SpectorOptions>(options =>
 {
-    options.UiPath = "/my-custom-path";      // Default: "/local-insights"
-    options.SseEndpoint = "/my-events";       // Default: "/local-insights/events"
+    options.UiPath = "/my-custom-path";      // Default: "/spector"
+    options.SseEndpoint = "/my-events";       // Default: "/spector/events"
     options.InMemoryMaxTraces = 200;          // Default: 100
     options.ActivitySourceName = "MyApp";     // Default: "Spector"
 });
