@@ -31,7 +31,7 @@ Perfect for development, testing, and troubleshooting API interactions without t
 
 ## 📸 Screenshots
 
-![Spector UI](assets/screenshot.png)
+![Spector UI](assets/image.png)
 *Real-time HTTP trace monitoring with detailed request/response inspection*
 
 ## 🚀 Installation
