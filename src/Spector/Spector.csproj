@@ -8,12 +8,12 @@
         <!-- NuGet Package Metadata -->
         <PackageId>Spector</PackageId>
         <Version>1.0.0</Version>
-        <Authors>Yash</Authors>
-        <Company>Yash</Company>
+        <Authors>Yashwanth K</Authors>
+        <Company>Yashwanth K</Company>
         <Description>A lightweight network and dependency inspector for ASP.NET Core applications. Spector captures HTTP traces (incoming and outgoing requests) and provides a real-time web UI for monitoring and debugging.</Description>
         <PackageTags>aspnetcore;network;inspector;tracing;diagnostics;http;monitoring;debugging</PackageTags>
-        <PackageProjectUrl>https://github.com/yash/network-inspector</PackageProjectUrl>
-        <RepositoryUrl>https://github.com/yash/network-inspector</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/yashwanthkkn/spector</PackageProjectUrl>
+        <RepositoryUrl>https://github.com/yashwanthkkn/spector</RepositoryUrl>
         <RepositoryType>git</RepositoryType>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
         <PackageReadmeFile>README.md</PackageReadmeFile>
