@@ -7,7 +7,7 @@
         
         <!-- NuGet Package Metadata -->
         <PackageId>Spector</PackageId>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <Authors>Yashwanth K</Authors>
         <Company>Yashwanth K</Company>
         <Description>A lightweight network and dependency inspector for ASP.NET Core applications. Spector captures HTTP traces (incoming and outgoing requests) and provides a real-time web UI for monitoring and debugging.</Description>
